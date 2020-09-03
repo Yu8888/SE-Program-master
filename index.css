@@ -11,3 +11,63 @@ html {
 body {
     font-size: 1.6rem;
 }
+
+
+/*---------------Header---------------*/
+header {
+    display: flex;
+    height: auto;
+    margin: 2rem  2rem 5rem 2rem;
+}
+
+header div {
+    display: flex;
+    font-size: 3rem;
+}
+
+header .logo {
+    padding-right: 10rem;
+    padding-left: 5rem;
+}
+
+header select {
+    width: 20rem;
+}
+
+header input {
+    width: 40rem;
+}
+
+header i {
+    width: 4rem;
+}
+
+/*---------------Section-hero---------------*/
+
+.section-hero .filter {
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    align-items: center;
+    border: 1px solid black;
+    width: 20%;
+    height: 50rem;
+}
+
+.section-hero div {
+    margin-bottom: 1.5rem;
+}
+
+.section-hero .filter h2{
+    margin-bottom: 3rem;
+    font-weight: bold;
+    font-size: 2rem;
+}
+    
+.section-hero div span {
+    margin-right: 1rem;
+}
+
+.section-hero input {
+    transform: scale(1.5);
+}
