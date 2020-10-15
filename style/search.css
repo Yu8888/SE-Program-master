@@ -1,0 +1,47 @@
+/*------------Universal Selector------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+/*------------Body Selector------------*/
+
+.form {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.form input {
+    width: 30%;
+    height: 4vw;
+}
+
+.form input textarea:focus, input:focus {
+    outline-color: orange;
+}
+
+.form button {
+    width: 6rem;
+    height: 4vw;
+    background-color: white;
+}
+
+table {
+    width: 50%;
+    margin: 10rem auto;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }

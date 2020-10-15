@@ -1,0 +1,64 @@
+/*------------Universal Selector------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+/*------------Header------------*/
+
+
+/*------------Section Hero------------*/
+/* .section-hero div {
+    display: flex;
+    align-items: flex-start;
+    text-align: center;
+    margin: 30% auto;
+    height: 10vw;
+}
+
+.section-hero div input {
+    width: 60%;
+    height: 40%;
+    border-radius: 10px;
+    border: 1px gray solid;
+    font-size: 2rem;
+    margin-right: 2rem;
+}
+
+.section-hero div input textarea:focus, input:focus {
+    outline-color: orange;
+}
+
+.section-hero div button {
+    width: 10%;
+    height: 38%;
+} */
+
+.form {
+    text-align: center;
+    margin-top: 30%;
+}
+
+.form input {
+    width: 30%;
+    height: 4vw;
+}
+
+.form input textarea:focus, input:focus {
+    outline-color: orange;
+}
+
+.form button {
+    width: 6rem;
+    height: 4vw;
+    background-color: white;
+}
