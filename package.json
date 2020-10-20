@@ -1,0 +1,29 @@
+{
+  "name": "SE-Program",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "engines":{
+  "node": "12.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RustyLesh/SE-Program.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RustyLesh/SE-Program/issues"
+  },
+  "homepage": "https://github.com/RustyLesh/SE-Program#readme",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "express": "^4.17.1",
+    "express-art-template": "^1.0.1"
+  }
+}
