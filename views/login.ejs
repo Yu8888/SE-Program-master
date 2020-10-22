@@ -10,18 +10,14 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/style/search.css">
-    <script
-      src="https://kit.fontawesome.com/768822f290.js"
-      crossorigin="anonymous"
-    ></script>
+    <link rel="stylesheet" href="/style/login.css" />
   </head>
   <body>
     <header>
       <nav class="navbar navbar-expand-sm bg-light navbar-light">
         <ul class="navbar-nav">
           <li class="nav-item active">
-            <div><img src="/logo/SEER-Logo.png" alt="SEER" /></div>
+            <a class="nav-link" href="#">SEER</a>
           </li>
           <li class="nav-item">
             <form action="/" method="GET">
@@ -40,29 +36,14 @@
         </div>
       </nav>
     </header>
-    <form class="form" method="post" action="/search">
-        <input type="text" name="keyword" id="keytext" required />
-        <button id="btnsearch"><i class="fas fa-search"></i></button>
-      </form>
-    <table>
-      <thead>
-        <th>#</th>
-        <th>Title</th>
-        <th>Name</th>
-        <th>Paragraph</th>
-      </thead>
-      <tbody>
-        <% for (var i = 0; i < posts.length; i++) { %>
-         <tr>
-          <th><%= i+1 %></th>
-          <td><%= posts[i].title %></td>
-          <td><%= posts[i].Name %></td>
-          <td><%= posts[i].Paragraph %></td>
-         </tr>
-        <% } %>
-      </tbody>
-    </table>
-
+    <form class="form" method="post" action="/login">
+      <div>
+        <input type="text" name="userId" id="userId" placeholder="ID" required />
+        <input type="text" name="userPw" id="userPw" placeholder="Password" required />
+        <button type="button" class="btn btn-danger">Login</button>
+      </div>
+      
+    </form>
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
       integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -80,3 +61,4 @@
     ></script>
   </body>
 </html>
+`

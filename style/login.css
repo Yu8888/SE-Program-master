@@ -1,4 +1,3 @@
-/*------------Universal Selector------------*/
 * {
     margin: 0;
     padding: 0;
@@ -13,39 +12,30 @@ body {
     font-size: 1.6rem;
 }
 
-/*------------Body Selector------------*/
-
 .form {
     text-align: center;
-    margin-top: 5%;
+    margin-top: 30%;
 }
 
 .form input {
     width: 30%;
+}
+
+.form #userId, #userPw {
+    display: block;
+    margin: 0 auto 0.5rem;
     height: 4vw;
 }
 
-.form input textarea:focus,
-input:focus {
+.form input textarea:focus, input:focus {
     outline-color: orange;
 }
 
 .form button {
-    width: 6rem;
+    width: 7rem;
     height: 4vw;
-    background-color: white;
-}
-
-table {
-    width: 50%;
-    margin: 10rem auto;
-}
-
-th,
-td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
+    border: none;
+    font-size: 1.5rem;
 }
 
 .navbar-nav {
@@ -53,7 +43,7 @@ td {
 }
 
 .navbar {
-
+    
     justify-content: space-between;
 }
 

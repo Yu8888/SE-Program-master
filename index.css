@@ -14,7 +14,7 @@ body {
 
 
 /*---------------Header---------------*/
-header {
+/* header {
     display: flex;
     height: auto;
     margin: 2rem  2rem 5rem 2rem;
@@ -40,7 +40,7 @@ header input {
 
 header i {
     width: 4rem;
-}
+} */
 
 /*---------------Section-hero---------------*/
 

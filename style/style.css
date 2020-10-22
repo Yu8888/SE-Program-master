@@ -45,7 +45,7 @@ body {
 
 .form {
     text-align: center;
-    margin-top: 30%;
+    margin-top: 20%;
 }
 
 .form input {
@@ -61,4 +61,29 @@ body {
     width: 6rem;
     height: 4vw;
     background-color: white;
+}
+
+.navbar-nav {
+    font-size: 2.5rem;
+}
+
+.navbar {
+    
+    justify-content: space-between;
+}
+
+.btn-container {
+    justify-content: space-between;
+}
+
+.btn-container .btn {
+    font-size: 1.8rem;
+}
+
+.btn-container form {
+    display: inline;
+}
+
+.active {
+    background-image: url(/logo/SEER-Logo.png);
 }

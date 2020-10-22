@@ -57,3 +57,40 @@ app.post("/search", function (req, res) {
     });
 });
 
+//Render index page
+app.get("/home", function(req, res) {
+  res.render(__dirname + "/index.html");
+})
+
+//Login page
+app.get("/login", function(req, res) {
+  res.render("login.ejs");
+})
+
+//Login funtion
+app.post("/login", function(req, res) {
+  var id = req.body.userId;
+  var pw = req.body.userPw;
+  
+  if(id === "moder" && pw === "123") {
+    res.render("submitter.ejs");
+  } 
+})
+
+//Registration page
+app.get("/register", function(req, res) {
+  res.render("registeration.ejs");
+})
+
+//Moderator Page
+app.post("/datalist", function(req, res) {
+  db.collection("post").find().toArray(function (err, result) {
+    if (err) {
+      return console.log(err);
+    }
+    var list = [];
+    list = result.slice(0);
+    console.log(list);
+    res.render("search.ejs", { posts : list});
+  });
+})
