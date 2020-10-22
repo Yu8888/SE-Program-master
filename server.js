@@ -57,3 +57,6 @@ app.post("/search", function (req, res) {
     });
 });
 
+module.exports = function() {
+  return 'hello';
+}
