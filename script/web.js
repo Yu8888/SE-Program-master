@@ -6,11 +6,11 @@
 // // Search button eventlistener
 // form.addEventListener("submit", function () {
 //   // console.log("submitted");
-//   // fetch("/search", { method: "GET" })
-//   //   .then(function (response) {
-//   //     if (response.ok) return response.json();
-//   //     throw new Error("Request failed.");
-//   //   })
+//   fetch("/search", { method: "GET" })
+//     .then(function (response) {
+//       if (response.ok) return response.json();
+//       throw new Error("Request failed.");
+//     })
 //   //   .then(function (data) {
 //   //     list = data.slice(0);
 //   //     for (var i = 0; i < list.length; i++) {
@@ -21,3 +21,10 @@
 //   //     console.log("catch error");
 //   //   });
 // });
+
+// fetch("/search", { method: "post" })
+// .then(function (response) {
+//     console.log(response)
+//   if (response.ok) {alert("Submitted")};
+//   throw new Error("Request failed.");
+// })

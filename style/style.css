@@ -68,11 +68,7 @@ body {
 }
 
 .navbar {
-    
-    justify-content: space-between;
-}
-
-.btn-container {
+    display: flex;
     justify-content: space-between;
 }
 

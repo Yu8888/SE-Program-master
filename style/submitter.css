@@ -1,0 +1,56 @@
+/*------------Universal Selector------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.info-form {
+    width: 50%;
+    margin: 10rem auto;
+}
+
+.info-form .input-group-text, .form-control {
+    font-size: 2rem;
+}
+.navbar-nav {
+    font-size: 2.5rem;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-container {
+    justify-content: space-between;
+}
+
+.btn-container .btn {
+    font-size: 1.8rem;
+}
+
+.btn-container form {
+    display: inline;
+}
+
+.active {
+    background-image: url(/logo/SEER-Logo.png);
+}
+
+#submit {
+    float: right;
+    font-size: 2rem;
+}
+
+.contentBox{
+    height: 20rem;
+}

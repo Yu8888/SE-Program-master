@@ -1,0 +1,38 @@
+{
+  "name": "se-program",
+  "version": "1.0.0",
+  "description": "SE SearchEngine",
+  "main": "server.js",
+  "dependencies": {
+    "art-template": "^4.13.2",
+    "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
+    "chai": "^4.2.0",
+    "ejs": "^3.1.5",
+    "express": "^4.17.1",
+    "express-art-template": "^1.0.1",
+    "express-session": "^1.17.1",
+    "jquery": "^3.5.1",
+    "jquery.js": "0.0.2-security",
+    "mocha": "^8.2.0",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.10",
+    "node.js": "^0.0.1-security",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RustyLesh/SE-Program.git"
+  },
+  "author": "Jack Steven Theo Les",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RustyLesh/SE-Program/issues"
+  },
+  "homepage": "https://github.com/RustyLesh/SE-Program#readme"
+}

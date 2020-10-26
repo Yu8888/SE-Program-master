@@ -45,7 +45,7 @@ MongoClient.connect(dburl, function (err, client) {
 app.post("/search", function (req, res) {
   var word = req.body.keyword;
   db.collection("post")
-    .find({ Name: word })
+    .find({ name: word })
     .toArray(function (err, result) {
       if (err) {
         return console.log(err);
@@ -53,44 +53,175 @@ app.post("/search", function (req, res) {
       var list = [];
       list = result.slice(0);
       console.log(list);
-      res.render("search.ejs", { posts : list});
+      res.render("search.ejs", { posts: list });
     });
 });
 
 //Render index page
-app.get("/home", function(req, res) {
+app.get("/home", function (req, res) {
   res.render(__dirname + "/index.html");
-})
+});
 
 //Login page
-app.get("/login", function(req, res) {
+app.get("/login", function (req, res) {
   res.render("login.ejs");
-})
+});
 
 //Login funtion
-app.post("/login", function(req, res) {
-  var id = req.body.userId;
-  var pw = req.body.userPw;
-  
-  if(id === "moder" && pw === "123") {
-    res.render("submitter.ejs");
-  } 
-})
+app.post("/login", function (req, res) {
+  var body = req.body;
+  console.log(body);
+  db.collection("users").findOne(
+    {
+      email: body.email,
+      password: body.password,
+    },
+    function (err, data) {
+      if (err) {
+        return res.status(500).json({
+          err_code: false,
+          message: "Server error",
+        });
+      }
+
+      if (data == null) {
+        return res.status(200).json({
+          // success: true,
+          err_code: 1,
+          message: "not OK",
+        });
+      } else if (data) {
+        console.log(data);
+        return res.status(200).json({
+          // success: true,
+          err_code: 0,
+          message: "ok",
+        });
+      }
+    }
+  );
+});
 
 //Registration page
-app.get("/register", function(req, res) {
+app.get("/register", function (req, res) {
   res.render("registeration.ejs");
-})
+});
 
-//Moderator Page
-app.post("/datalist", function(req, res) {
-  db.collection("post").find().toArray(function (err, result) {
+// Registration function
+app.post("/register", function (req, res) {
+  var body = req.body;
+  console.log(body);
+  db.collection("users").findOne({ name: body.account_number }, function (
+    err,
+    data
+  ) {
     if (err) {
-      return console.log(err);
+      return res.status(500).json({
+        err_code: false,
+        message: "Server error",
+      });
     }
-    var list = [];
-    list = result.slice(0);
-    console.log(list);
-    res.render("search.ejs", { posts : list});
+
+    if (data === null) {
+      console.log("1");
+      db.collection("users")
+        .insertOne({
+          email: body.email,
+          account_number: body.account_number,
+          password: body.password,
+        })
+        .then(function () {
+          res.status(200).json({
+            // success: true,
+            err_code: 0,
+            message: "OK",
+          });
+        });
+    } else if (data) {
+      console.log(data);
+      return res.status(200).json({
+        // success: true,
+        err_code: 1,
+        message: "Email or account number already exists",
+      });
+    }
   });
-})
+});
+
+//Analyst Page
+app.get("/analyst", function (req, res) {
+  db.collection("submittedData")
+    .find()
+    .toArray(function (err, result) {
+      if (err) {
+        return console.log(err);
+      }
+      var list = [];
+      list = result.slice(0);
+      console.log(list);
+      res.render("analyst.ejs", { subdata: list });
+    });
+});
+
+//Get submitter
+app.get("/submitter", function(req, res) {
+  res.render("submitter.ejs");
+});
+
+//Get Analyst
+// app.get("/analyst", function(req, res) {
+//   res.render("analyst.ejs");
+// });
+
+//Submitter submission function
+app.post("/submitter", function (req, res) {
+  var title = req.body.title;
+  var author = req.body.author;
+  var content = req.body.content;
+  var length;
+
+  db.collection("submittedData")
+    .find()
+    .toArray(function (err, result) {
+      if (err) return err;
+      length = result.length;
+      db.collection("submittedData")
+        .insertOne({
+          _id: length.toString(),
+          Title: title,
+          Author: author,
+          Content: content,
+        })
+        .then(res.render("submitter.ejs"))
+        .catch(function (err) {
+          console.log(err);
+        });
+    });
+});
+
+app.delete("/delete", function (req, res) {
+  db.collection("submittedData").deleteOne(req.body, function (err, result) {
+    if (err) {
+      console.log(err);
+    }
+    // db.collection("submittedData").find(req.body).toArray(function (err, result) {
+    // })
+    // console.log("delete complete");
+    res.status(200).send("done");
+  });
+});
+
+app.post("/add", function (req, res) {
+  console.log(req.body);
+  db.collection("post").insert(req.body, function (err, result) {
+    if (err) return err;
+    console.log("insert result");
+    console.log(result);
+    db.collection("post")
+      .find()
+      .toArray(function (err, result) {
+        console.log("find result");
+        console.log(result);
+      });
+  });
+});
