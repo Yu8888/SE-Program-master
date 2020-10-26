@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 
 //Server Launch fucntion
 function init() {
-  app.engine("html", require("express-art-template"));
+  // app.engine("html", require("express-art-template"));
 
   //Use css and javascript file
   app.use("/style/", express.static("./style/"));
@@ -25,7 +25,7 @@ function init() {
   app.get("/", function (request, response) {
     response.sendFile(__dirname + "/index.html");
   });
-  app.listen(process.env.PORT || 8000, () => console.log("Server started"));
+  app.listen(process.env.PORT || 5000, () => console.log("Server started"));
 }
 
 //Declare database variables
@@ -36,7 +36,7 @@ var dburl =
 //Connecting Database Section
 MongoClient.connect(dburl, function (err, client) {
   db = client.db("searchapp");
-  if (err) return console.log("error...");
+  if (err) return console.log("fucking error...");
   init();
   console.log("DB has been connected!");
 });
@@ -164,7 +164,7 @@ app.get("/analyst", function (req, res) {
 });
 
 //Get submitter
-app.get("/submitter", function(req, res) {
+app.get("/submitter", function (req, res) {
   res.render("submitter.ejs");
 });
 
