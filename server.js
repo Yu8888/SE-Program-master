@@ -30,17 +30,27 @@ function init() {
 
 //Declare database variables
 var db;
-var dburl =
-  "mongodb+srv://hyp9617:0000@cluster0.70jkq.mongodb.net/<dbname>?retryWrites=true&w=majority";
+var uri =
+  "mongodb+srv://hyp9617:<password>@cluster0.70jkq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
-//Connecting Database Section
-MongoClient.connect(dburl, function (err, client) {
-  db = client.db("searchapp");
-  if (err) return console.log("fucking error...");
-  init();
-  console.log("DB has been connected!");
+const client = new MongoClient(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
+//Connecting Database Section
+// MongoClient.connect(dburl, function (err, client) {
+//   db = client.db("searchapp");
+//   if (err) return console.log("error...");
+//   init();
+//   console.log("DB has been connected!");
+// });
+client.connect((err) => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+  console.log("success")
+});
 //Search keyword from Database
 app.post("/search", function (req, res) {
   var word = req.body.keyword;
