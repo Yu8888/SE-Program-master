@@ -25,22 +25,31 @@ function init() {
   app.get("/", function (request, response) {
     response.sendFile(__dirname + "/index.html");
   });
-  app.listen(process.env.PORT || 5000, () => console.log("Server started"));
+  app.listen(5000, () => console.log("Server started"));
 }
-init();
+
 //Declare database variables
 var db;
 var uri =
-  "mongodb+srv://hyp9617:<password>@cluster0.70jkq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+  "mongodb+srv://hyp9617:0000@cluster0.70jkq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
+
+//Connecting Database Section
+// MongoClient.connect(dburl, function (err, client) {
+//   db = client.db("searchapp");
+//   if (err) return console.log("error...");
+//   init();
+//   console.log("DB has been connected!");
+// });
 client.connect((err) => {
-  const collection = client.db("test").collection("devices");
+  db = client.db("searchapp");
   // perform actions on the collection object
-  client.close();
+  if (err) return console.log('err');
+  init();
   console.log("success")
 });
 //Search keyword from Database
