@@ -25,7 +25,7 @@ function init() {
   app.get("/", function (request, response) {
     response.sendFile(__dirname + "/index.html");
   });
-  app.listen(5000, () => console.log("Server started"));
+  app.listen(process.env.PORT || 5000, () => console.log("Server started"));
 }
 
 //Declare database variables
