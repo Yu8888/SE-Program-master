@@ -49,7 +49,7 @@ client.connect((err) => {
   db = client.db("searchapp");
   // perform actions on the collection object
   if (err) return console.log('err');
-  init();
+  // init();
   console.log("success")
 });
 //Search keyword from Database
