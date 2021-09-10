@@ -31,7 +31,7 @@ init();
 //Declare database variables
 var db;
 var uri =
-  "mongodb+srv://hyp9617:<password>@cluster0.70jkq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+"mongodb+srv://hyp9617:0000@cluster0.70jkq.mongodb.net/<dbname>?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
