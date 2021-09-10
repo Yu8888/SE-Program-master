@@ -27,7 +27,7 @@ function init() {
   });
   app.listen(process.env.PORT || 5000, () => console.log("Server started"));
 }
-
+init();
 //Declare database variables
 var db;
 var uri =
